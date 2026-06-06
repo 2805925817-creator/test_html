@@ -22,6 +22,118 @@
   --shadow: 0 20px 60px rgba(180, 100, 20, 0.12);
 }
 
+body.dark {
+  --bg: #0f0b07;
+  --bg-2: #161008;
+
+  --card: rgba(30, 20, 10, 0.85);
+  --card-2: rgba(40, 28, 14, 0.75);
+
+  --border: rgba(230, 160, 80, 0.18);
+
+  --text: #f5ede0;
+  --muted: rgba(245, 237, 224, 0.58);
+  --muted-2: rgba(245, 237, 224, 0.35);
+
+  --gold: #e8791a;
+  --gold-2: #f09030;
+  --orange: #f09030;
+
+  --green: #2ec97a;
+  --red: #f05060;
+  --yellow: #f0a020;
+
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+body.dark {
+  background:
+    radial-gradient(circle at 72% 8%, rgba(200, 100, 40, 0.14), transparent 28%),
+    radial-gradient(circle at 16% 12%, rgba(180, 80, 30, 0.08), transparent 26%),
+    radial-gradient(circle at 52% 62%, rgba(160, 100, 40, 0.09), transparent 42%),
+    linear-gradient(180deg, #100c06 0%, #0d0905 48%, #100c06 100%);
+}
+
+body.dark .hero::after {
+  background: linear-gradient(180deg, transparent, rgba(15, 11, 7, 0.9));
+}
+
+body.dark .code-card {
+  background:
+    linear-gradient(180deg, rgba(40, 28, 10, 0.92), rgba(30, 22, 8, 0.96)),
+    rgba(0, 0, 0, 0.04);
+}
+
+body.dark .code-head {
+  background: rgba(40, 28, 10, 0.5);
+  border-bottom-color: rgba(180, 100, 30, 0.15);
+}
+
+body.dark pre {
+  color: rgba(245, 237, 224, 0.82);
+}
+
+body.dark .floating-card {
+  background:
+    linear-gradient(180deg, rgba(40, 28, 10, 0.94), rgba(30, 22, 8, 0.96));
+}
+
+body.dark .feature-card {
+  background:
+    radial-gradient(circle at 80% 80%, rgba(232, 121, 26, 0.08), transparent 38%),
+    linear-gradient(180deg, rgba(30, 20, 8, 0.92), rgba(25, 17, 6, 0.95));
+}
+
+body.dark .feature-card:hover {
+  background:
+    radial-gradient(circle at 80% 80%, rgba(232, 121, 26, 0.13), transparent 38%),
+    linear-gradient(180deg, rgba(38, 26, 10, 0.95), rgba(30, 20, 8, 0.98));
+}
+
+body.dark .compare-card {
+  background:
+    linear-gradient(180deg, rgba(30, 20, 8, 0.92), rgba(25, 17, 6, 0.95));
+}
+
+body.dark .compare-card h3 {
+  background: rgba(40, 28, 10, 0.5);
+  border-bottom-color: rgba(180, 100, 30, 0.15);
+}
+
+body.dark .model-card {
+  background:
+    linear-gradient(180deg, rgba(30, 20, 8, 0.92), rgba(25, 17, 6, 0.95));
+}
+
+body.dark .model-card.featured {
+  background:
+    radial-gradient(circle at 70% 0%, rgba(232, 121, 26, 0.1), transparent 34%),
+    linear-gradient(180deg, rgba(38, 26, 10, 0.95), rgba(30, 20, 8, 0.98));
+}
+
+body.dark .modal {
+  background: linear-gradient(180deg, #1a1008, #120c05);
+}
+
+body.dark .modal-close {
+  background: rgba(40, 28, 10, 0.7);
+}
+
+body.dark .cta-panel {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(232, 121, 26, 0.12), transparent 32%),
+    linear-gradient(135deg, rgba(30, 20, 8, 0.96), rgba(25, 17, 6, 0.98));
+}
+
+body.dark .btn.secondary {
+  background: rgba(40, 28, 10, 0.6);
+  color: var(--text);
+}
+
+body.dark .footer-note {
+  color: rgba(245, 237, 224, 0.3);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
