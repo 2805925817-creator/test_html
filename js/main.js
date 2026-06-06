@@ -384,6 +384,37 @@ const i18n = {
   applyLang(resolveLang(rawLang));
 })();
 
+// ── Toolbar ────────────────────────────────────────────────────────────────
+
+let currentLang = 'zh';
+let currentTheme = 'light';
+
+const langLabels = { zh: '中', en: 'EN', ja: '日' };
+
+function toggleLangMenu() {
+  document.getElementById('langDropdown').classList.toggle('open');
+}
+
+function switchLang(lang) {
+  currentLang = lang;
+  document.getElementById('langLabel').textContent = langLabels[lang];
+  document.getElementById('langDropdown').classList.remove('open');
+  applyLang(lang);
+}
+
+function toggleTheme() {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  applyTheme(currentTheme);
+  document.getElementById('themeIcon').textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+}
+
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('langMenu');
+  if (menu && !menu.contains(e.target)) {
+    document.getElementById('langDropdown').classList.remove('open');
+  }
+});
+
 // ── Modal ──────────────────────────────────────────────────────────────────
 
 function openModal() {

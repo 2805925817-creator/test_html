@@ -295,6 +295,24 @@ response = client.chat.completions.create(
     </div>
   </div>
 
+  <!-- 右上角控制栏 -->
+  <div class="toolbar" id="toolbar">
+    <div class="toolbar-lang" id="langMenu">
+      <button class="toolbar-btn" id="langBtn" onclick="toggleLangMenu()">
+        <span id="langLabel">中</span>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M2 3.5l3 3 3-3"/></svg>
+      </button>
+      <div class="toolbar-dropdown" id="langDropdown">
+        <button onclick="switchLang('zh')">中文</button>
+        <button onclick="switchLang('en')">English</button>
+        <button onclick="switchLang('ja')">日本語</button>
+      </div>
+    </div>
+    <button class="toolbar-btn" id="themeBtn" onclick="toggleTheme()" title="切换主题">
+      <span id="themeIcon">☀️</span>
+    </button>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
