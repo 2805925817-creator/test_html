@@ -1,250 +1,300 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>梯度云 · 开发中心</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: linear-gradient(135deg, #0a0f1f 0%, #0f172a 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-
-        /* 主卡片 */
-        .card {
-            max-width: 680px;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(16px);
-            border-radius: 2rem;
-            padding: 2rem 1.8rem;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
-            transition: all 0.2s ease;
-            color: #e2e8f0;
-        }
-
-        h1 {
-            font-size: 1.9rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff, #94a3b8);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.3px;
-        }
-
-        .sub {
-            color: #94a3b8;
-            border-left: 3px solid #3b82f6;
-            padding-left: 1rem;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-        }
-
-        /* 状态提示 */
-        .status-badge {
-            background: #1e293b;
-            border-radius: 2rem;
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 1.8rem;
-            border: 1px solid #334155;
-        }
-
-        .status-light {
-            width: 10px;
-            height: 10px;
-            border-radius: 10px;
-            background: #10b981;
-            box-shadow: 0 0 6px #10b981;
-        }
-
-        /* 按钮组 */
-        .button-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0 1.5rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 0.75rem 1.6rem;
-            border-radius: 3rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: #3b82f6;
-            color: white;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(59, 130, 246, 0.4);
-        }
-
-        .btn-secondary {
-            background: #334155;
-            color: #f1f5f9;
-            border: 1px solid #475569;
-        }
-
-        .btn-secondary:hover {
-            background: #1e293b;
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            border: 1px solid #475569;
-            background: transparent;
-            color: #cbd5e1;
-        }
-
-        .btn-outline:hover {
-            background: #1e293b;
-            border-color: #3b82f6;
-            color: white;
-        }
-
-        /* 说明卡片 */
-        .info-card {
-            background: #0f172a;
-            border-radius: 1.2rem;
-            padding: 1.2rem;
-            margin: 1.8rem 0;
-            border-left: 4px solid #3b82f6;
-            font-size: 0.85rem;
-        }
-
-        .info-card p {
-            margin: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        code {
-            background: #00000060;
-            padding: 0.2rem 0.5rem;
-            border-radius: 12px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            color: #7dd3fc;
-        }
-
-        .footer-note {
-            font-size: 0.7rem;
-            text-align: center;
-            margin-top: 2rem;
-            color: #5b6e8c;
-            border-top: 1px solid #1e293b;
-            padding-top: 1.2rem;
-        }
-
-        a {
-            color: #7dd3fc;
-            text-decoration: none;
-        }
-
-        @media (max-width: 500px) {
-            .card {
-                padding: 1.5rem;
-            }
-            .btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.85rem;
-            }
-            h1 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API 中转站首页</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-<div class="card">
-    <h1>⚡ 梯度云 · 开发入口</h1>
-    <div class="sub">统一的 API 网关 | 多模型一键接入</div>
+  <main class="page">
 
-    <div class="status-badge">
-        <div class="status-light"></div>
-        <span id="iframeIndicator">正在检测嵌入环境 …</span>
-    </div>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            高稳定 · 低延迟 · 多模型 API 中转服务
+          </div>
 
-    <div class="button-group">
-        <!-- 获取密钥：直接跳转到正确的 /console/token，未登录会自动去 /login -->
-        <a href="https://tdyun.ai/console/token" target="_parent" class="btn btn-primary">
-            🔑 获取 API 密钥
-        </a>
-        <!-- 查看文档：根据 NewAPI 常见路由，文档通常在 /docs -->
-        <a href="https://tdyun.ai/docs" target="_blank" class="btn btn-secondary">
-            📖 阅读文档
-        </a>
-        <!-- 可选：直接提供登录入口（方便未登录用户） -->
-        <a href="https://tdyun.ai/login" target="_parent" class="btn btn-outline">
-            🔐 登录控制台
-        </a>
-    </div>
+          <h1>
+            一站式 API 中转站，<br />
+            <span>让模型调用更稳定、更专业</span>
+          </h1>
 
-    <div class="info-card">
-        <p>📍 <strong>密钥管理地址</strong>：<code>https://tdyun.ai/console/token</code></p>
-        <p>🔐 <strong>未登录时</strong>：点击「获取 API 密钥」会跳转到登录页 → 登录后自动回到密钥管理页面。</p>
-        <p>🧪 <strong>iframe 测试</strong>：本页面可被 NewAPI 嵌套，所有链接均携带 <code>target="_parent"</code>，避免被锁在框架内。</p>
-        <p>🚀 <strong>接入示例</strong>：将 <code>https://tdyun.ai</code> 作为基址，使用您的密钥即可调用 /v1/chat/completions 等接口。</p>
-    </div>
+          <p>
+            专注 Claude 模型接口服务。只需修改一行 base_url，即可获得更高可用性、更低接入门槛和更顺滑的开发体验。
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://tdyun.ai/console" class="btn">立即获取 API Key</a>
+            <a href="https://www.yuque.com/tiduyunkeji/omiq30/ka3zaubbor8kpdgf?singleDoc# 《梯度云科技 API 接入教程 无令牌》" class="btn secondary" target="_blank">查看接入文档</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>99%</strong>
+              <span>服务可用率</span>
+            </div>
+            <div class="stat">
+              <strong>&lt;50ms</strong>
+              <span>平均响应延迟</span>
+            </div>
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>技术支持</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual">
+          <div class="code-card">
+            <div class="code-head">
+              <span class="light red"></span>
+              <span class="light yellow"></span>
+              <span class="light green"></span>
+            </div>
+<pre><small>import</small> openai
+
+client = openai.OpenAI(
+    api_key=<b>"YOUR_API_KEY"</b>,
+    base_url=<b>"https://tdyun.ai"</b>
+)
+
+response = client.chat.completions.create(
+    model=<b>"claude-opus-4-8"</b>,
+    messages=[
+        {
+          "role": "user",
+          "content": "帮我生成一份产品方案"
+        }
+    ]
+)
+
+print(response.choices[0].message.content)</pre>
+          </div>
+
+          <div class="floating-card">
+            <h3>只改一行 base_url</h3>
+            <p>
+              无需重构现有业务代码，兼容官方 SDK 调用方式。
+              快速切换模型供应商，统一计费、统一管理、统一监控。
+            </p>
+          </div>
+
+          <div class="ring"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 痛点 -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <div class="label">为什么需要 API 中转站？</div>
+          <h2>解决企业接入大模型时的 <span>三大难题</span></h2>
+          <p>从账号、网络、成本到模型切换，我们帮你把复杂流程变简单。</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-card" data-index="01">
+            <div class="icon">⌁</div>
+            <h3>网络不稳定，调用超时</h3>
+            <p>多节点智能调度与链路优化，降低请求失败率，提升业务系统调用成功率。</p>
+          </div>
+          <div class="feature-card" data-index="02">
+            <div class="icon">◇</div>
+            <h3>多模型接入复杂</h3>
+            <p>统一接口格式，统一 Key 管理，快速接入多个模型供应商，无需重复开发。</p>
+          </div>
+          <div class="feature-card" data-index="03">
+            <div class="icon">￥</div>
+            <h3>成本不可控</h3>
+            <p>透明用量统计、请求日志、额度管理和成本分析，让每一次调用都清晰可见。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 优势 -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <div class="label">核心能力</div>
+          <h2>一个 API Key，调用<span>全系列模型</span></h2>
+          <p>为开发者和企业团队提供稳定、安全、专业的模型 API 接入底座。</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-card" data-index="A">
+            <div class="icon">⚡</div>
+            <h3>高可用中转</h3>
+            <p>多线路冗余、失败重试、自动切换节点，保障高并发场景下的稳定调用。</p>
+          </div>
+          <div class="feature-card" data-index="B">
+            <div class="icon">🔐</div>
+            <h3>安全隔离</h3>
+            <p>用户 Key 独立隔离，传输全程加密，不保存对话内容，降低数据泄露风险。</p>
+          </div>
+          <div class="feature-card" data-index="C">
+            <div class="icon">📊</div>
+            <h3>用量可视化</h3>
+            <p>支持 Token 统计、调用记录、失败分析、额度提醒，让运营决策更有依据。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 代码对比 -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <div class="label">快速接入</div>
+          <h2>改一行 base_url，<span>代码几乎零改动</span></h2>
+          <p>保持官方 SDK 使用方式，降低迁移和维护成本。</p>
+        </div>
+
+        <div class="compare">
+          <div class="compare-card">
+            <h3>官方接口</h3>
+<pre><small>import</small> openai
+
+client = openai.OpenAI(
+    api_key="sk-xxxxx"
+)
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {
+          "role": "user",
+          "content": "生成一份日报"
+        }
+    ]
+)</pre>
+          </div>
+
+          <div class="compare-card">
+            <h3>API 中转站 <span class="badge">仅多一行</span></h3>
+<pre><small>import</small> openai
+
+client = openai.OpenAI(
+    api_key="your-api-key",
+    base_url=<b>"https://tdyun.ai"</b>
+)
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {
+          "role": "user",
+          "content": "生成一份日报"
+        }
+    ]
+)</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模型介绍 -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <div class="label">Claude 模型系列</div>
+          <h2>三款模型，<span>覆盖所有场景</span></h2>
+          <p>从轻量高频到旗舰推理，Anthropic Claude 系列模型全线接入，统一 API 格式，按需选用。</p>
+        </div>
+
+        <div class="models-grid">
+          <div class="model-card featured">
+            <div class="model-header">
+              <div class="model-logo">◈</div>
+              <div>
+                <h3>Claude Opus 4-8</h3>
+                <p>Anthropic · 旗舰</p>
+              </div>
+            </div>
+            <p class="model-desc">Anthropic 最强旗舰模型，拥有顶级推理、分析与创作能力。适合复杂研究、深度分析、高难度编程与长文档处理等任务。</p>
+            <div class="model-tags">
+              <span class="model-tag">✦ 深度推理</span>
+              <span class="model-tag">复杂分析</span>
+              <span class="model-tag">长文档处理</span>
+              <span class="model-tag">1M 上下文</span>
+            </div>
+          </div>
+
+          <div class="model-card featured">
+            <div class="model-header">
+              <div class="model-logo">◈</div>
+              <div>
+                <h3>Claude Sonnet 4-6</h3>
+                <p>Anthropic · 均衡</p>
+              </div>
+            </div>
+            <p class="model-desc">性能与速度的最佳平衡点，代码生成能力突出，响应迅速。适合日常开发、内容生成与企业级业务自动化场景。</p>
+            <div class="model-tags">
+              <span class="model-tag green">● 推荐首选</span>
+              <span class="model-tag">✦ 代码生成</span>
+              <span class="model-tag yellow">⚡ 快速响应</span>
+              <span class="model-tag">1M 上下文</span>
+            </div>
+          </div>
+
+          <div class="model-card">
+            <div class="model-header">
+              <div class="model-logo">◈</div>
+              <div>
+                <h3>Claude Haiku 4-5</h3>
+                <p>Anthropic · 轻量</p>
+              </div>
+            </div>
+            <p class="model-desc">速度最快、成本最低的 Claude 模型，延迟极低。适合高频调用、实时对话、分类摘要等对响应速度要求高的场景。</p>
+            <div class="model-tags">
+              <span class="model-tag yellow">⚡ 极速响应</span>
+              <span class="model-tag green">● 高性价比</span>
+              <span class="model-tag">高频调用</span>
+              <span class="model-tag">1M 上下文</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-panel">
+          <h2>现在开始，构建你的稳定 AI 应用</h2>
+          <p>
+            为产品、运营、研发和企业内部系统提供统一大模型 API 能力。
+            从测试到上线，快速接入，稳定运行。
+          </p>
+          <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+            <a href="https://tdyun.ai/console/token" class="btn">免费获取 API Key</a>
+            <a href="#" class="btn secondary" onclick="openModal(); return false;">联系技术顾问</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="footer-note">
-        🌐 当前页面已适配 iframe 嵌入 | 密钥安全由 NewAPI 统一管理<br>
-        如需帮助，请查阅 <a href="https://tdyun.ai/docs" target="_blank">官方文档</a> 或联系支持。
+      API Relay Platform © 2026 · 专业的大模型 API 中转服务
     </div>
-</div>
 
-<script>
-    (function() {
-        // 检测是否在 iframe 中
-        const isInIframe = window.self !== window.top;
-        const indicator = document.getElementById('iframeIndicator');
-        if (indicator) {
-            if (isInIframe) {
-                indicator.innerHTML = '✅ 当前页面运行在 NewAPI 首页 iframe 中（一切正常）';
-                indicator.style.color = '#bef264';
-            } else {
-                indicator.innerHTML = '📌 当前页面独立打开（可填入 NewAPI 后台作为 iframe 首页）';
-                indicator.style.color = '#facc15';
-            }
-        }
+  </main>
 
-        // 可选：记录控制台日志方便调试
-        console.log('[梯度云开发页] 加载完成，是否在iframe:', isInIframe, '密钥入口:', 'https://tdyun.ai/console/token');
-    })();
-</script>
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3>联系技术顾问</h3>
+      <p>扫码添加微信，获取专属接入支持</p>
+      <img src="https://picui.ogmua.cn/s1/2026/05/30/6a1a9929d3d07.webp" alt="微信二维码" />
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
