@@ -455,3 +455,17 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); goTo(current + 1); }
   if (e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); goTo(current - 1); }
 });
+
+let touchStartY = 0;
+
+window.addEventListener('touchstart', (e) => {
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener('touchend', (e) => {
+  if (locked) return;
+  const delta = touchStartY - e.changedTouches[0].clientY;
+  if (Math.abs(delta) < 40) return;
+  if (delta > 0) goTo(current + 1);
+  else goTo(current - 1);
+}, { passive: true });
